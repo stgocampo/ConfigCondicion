@@ -14,7 +14,7 @@ const router = express.Router();
     RUTA: /servidor 
     DESCRIPCIÓN: Obtiene todos los servidores
 */
-router.get('/', autenticar, async(req, res) => {
+router.get('/', async(req, res) => {
     let respuesta = undefined;
     try {
         let servidores = await Servidor.buscarTodos();
