@@ -14,7 +14,7 @@ const router = express.Router();
     RUTA: /zonas 
     DESCRIPCIÓN: Obtiene todas las zonas del sistema
 */
-router.get('/', autenticar, async(req, res) => {
+router.get('/', async(req, res) => {
     let respuesta = undefined;
     try {
         let zonas = await Zona.find();
@@ -31,7 +31,7 @@ router.get('/', autenticar, async(req, res) => {
     RUTA: /zonas/:id
     DESCRIPCIÓN: Obtiene una zona por su identificador
 */
-router.get('/:id', autenticar, async(req, res) => {
+router.get('/:id', async(req, res) => {
     let respuesta = undefined;
     try {
         let id = req.params.id;

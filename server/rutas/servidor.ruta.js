@@ -31,7 +31,7 @@ router.get('/', autenticar, async(req, res) => {
     RUTA: /servidor/:id
     DESCRIPCIÓN: Obtiene un servidor por su identificador
 */
-router.get('/:id', autenticar, async(req, res) => {
+router.get('/:id', async(req, res) => {
     let respuesta = undefined;
     try {
         let id = req.params.id;
@@ -55,7 +55,7 @@ router.get('/:id', autenticar, async(req, res) => {
     RUTA: /servidor/:id
     DESCRIPCIÓN: Obtiene la lista de servidores de una zona ordenada
 */
-router.get('/XIdZona/:id', autenticar, async(req, res) => {
+router.get('/XIdZona/:id', async(req, res) => {
     let respuesta = undefined;
     try {
         let id = req.params.id;
