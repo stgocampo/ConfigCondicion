@@ -1,0 +1,13 @@
+{
+    "prueba": {
+      "JWT_SECRET": "C0nd1c10n#2019",
+      "MONGODB_URI": "mongodb://localhost:27017/CondicionPruebaDB",
+      "PORT": 2929
+    },
+    "desarrollo": {
+        "JWT_SECRET": "C0nd1c10n#2019",
+      "MONGODB_URI": "mongodb://localhost:27017/CondicionDB",
+      "PORT": 2929
+    }
+  }
+  
