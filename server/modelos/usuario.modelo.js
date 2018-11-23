@@ -54,15 +54,31 @@ const UsuariosSchema = new mongoose.Schema({
 });
 
 UsuariosSchema.methods.generarTokenAutorizacion = async function(ip) {
-    let usuario = this;
-    let access = 'auth';
-    let token = jwt.sign({ _id: usuario._id.toHexString(), access }, process.env.JWT_SECRET).toString();
+    try {
+        let usuario = this;
+        let access = 'auth';
+        
+        console.log("Voy aca 1");
+        
+        
+        let token = jwt.sign({ _id: usuario._id.toHexString(), access }, process.env.JWT_SECRET).toString();
+    
+        console.log("Voy aca 2");
 
-    usuario.tokens.push({ access, token });
-    usuario.procesosInicioSesion.push({ token, fechaInicio: moment().unix(), ip });
+        usuario.tokens.push({ access, token });
 
-    await usuario.save()
-    return token;
+        console.log("Voy aca 3");
+        usuario.procesosInicioSesion.push({ token, fechaInicio: moment().unix(), ip });
+    
+        console.log("Voy aca 4");
+        await usuario.save();
+
+        console.log("Voy aca 5");
+        return token;    
+    } catch (error) {
+        console.log(JSON.stringify(error));
+    }
+    
 }
 UsuariosSchema.statics.buscarPorCredenciales = async function(nombreUsuario, password) {
     const usuario = await this.buscarPorNombreUsuario(nombreUsuario);

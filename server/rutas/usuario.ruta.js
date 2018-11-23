@@ -104,16 +104,11 @@ router.post('/login', async(req, res) => {
             return res.status(404).send(respuesta);
         }
 
-        console.log("Voy aca 1");
-        console.log("Addrress: ", address)
-
         const token = await usuario.generarTokenAutorizacion(address)
         if (token === null) {
             respuesta = comunes.objetoRespuesta(false, false, "No se ha generado el token de autenticación del usuario.", );
             return res.status(404).send(respuesta);
         }
-
-        console.log("Voy aca 2");
 
         respuesta = comunes.objetoRespuesta(true, false, "El usuario ha iniciado sesión exitosamente.");
         res.header('x-auth', token).send(respuesta);
